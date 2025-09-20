@@ -1,7 +1,7 @@
 # ⚙️ Proyecto de Ingeniera de software.⚙️
 
 ## Sistema web desarrollado con Flask y PostgreSQL para la gestión de negocios pequeños. 
-- ** implementado con la metodología Scrum. **
+> implementado con la metodología Scrum.
 
 ## 🚀 Características
 
@@ -18,6 +18,14 @@
 - **Git** para control de versiones
 - **Pip** para gestión de dependencias
 
+## 🛠️ Tecnologías Utilizadas
+
+*   **Backend:** Python, Flask, SQLAlchemy, Psycopg2
+*   **Frontend:** HTML, CSS, Python, JavaScript
+*   **Database:** PostgreSQL
+*   **Control de Versiones:** Git & GitHub
+*   **Metodología:** Scrum
+*   
 ## 🛠️ Instalación y Configuración
 
 ### 1. Clonar el Repositorio
@@ -59,7 +67,7 @@ cd sistema-gestion
 # Editar configuración en: instance/config.py
 # Ajustar: SQLALCHEMY_DATABASE_URI y SECRET_KEY
 ```
-### 6. Inicializar base de datos+
+### 6. Inicializar base de datos
 ``` bash
 # Crear tablas en la base de datos
 python create_tables.py
@@ -110,11 +118,16 @@ sistema-gestion/
 -   Validar funcionalidades completadas
 
 ### Scrum Master (SM)
--   Facilitar ceremonias Scrum (Daily, Planning, Review, Retrospective)
+-   Facilitar los eventos Scrum (Daily, Planning, Review, Retrospective)
 -   Remover impedimentos del equipo
+-   Responsable de la gestión del repositorio (ramas, merges, conflicts).
 -   Asegurar el seguimiento de la metodología
 
-### Equipo de Desarrollo
+### Equipo de Desarrollo( Front-end, Back-end, DBA)
+-   Auto-organizarse** para cumplir el objetivo del sprint.
+-   Realizar **commits frecuentes** en sus ramas de feature.
+-   Realizar **Pull Requests** para mergear el código a la rama `develop` o `main`.
+-   Revisar el código de sus compañeros (**Code Review**).
 #### Frontend
 -   Desarrollo de interfaces HTML/CSS/JS
 -   Implementación de templates Jinja2
