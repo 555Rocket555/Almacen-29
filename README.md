@@ -1,103 +1,207 @@
-# ⚙️ Proyecto de Ingeniera de software.⚙️
+# Almacen-29 - Proyecto de Ingenieria de Software 
 
-## Sistema web desarrollado con Flask y PostgreSQL para la gestión de negocios pequeños. 
-> implementado con la metodología Scrum.
+Este es el punto de partida del proyecto para "Almacén-29". 
+- Contiene la configuración básica de Flask, base de datos y sistema de autenticación.
 
-## 🚀 Características
+## Características Incluidas
+- ✅ Configuración Flask con SQLAlchemy
+- ✅ Modelo de Usuario básico
+- ✅ Sistema de login/logout
+- ✅ Estructura de proyecto organizada
+- ✅ Estilos básicos para login
 
-- **A.** 
-- **B.** 
-- **C.** 
-- **D.** 
-- **E.** 
+## 📋 Primer Sprint 
+### Product Owner y Scrum Master 
+- Crear carpeta para incluir documentacion (Modelo de negocio)
+- Terminar modelo de negocios 
 
-## 📋 Requisitos Previos
+### Frontend Developer:
+- Crear carpeta para incluir diseños de figma 
+- Mejorar el diseño del login
+- Crear el dashboard principal
+- Implementar responsive design
 
-- **Python 3.13** o superior
-- **PostgreSQL 16** o superior
-- **Git** para control de versiones
-- **Pip** para gestión de dependencias
+### DBA:
+- Realizar modelo entidad-relacion
+- Crear carpeta para incluir modelo
+- Elaborar querys(consultas)
 
-## 🛠️ Tecnologías Utilizadas
+### Backend Developer:
+- Crear modelo de clases a partir del modelo entidad- relación
+- Crear carpeta para incluir modelo
+- Crear rutas para el dashboard
+- Agregar más modelos (productos, categorías)
 
-*   **Backend:** Python, Flask, SQLAlchemy, Psycopg2
-*   **Frontend:** HTML, CSS, Python, JavaScript
-*   **Database:** PostgreSQL
-*   **Control de Versiones:** Git & GitHub
-*   **Metodología:** Scrum
-*   
-## 🛠️ Instalación y Configuración
 
-### 1. Clonar el Repositorio
-```bash
-git clone git@github.com:555Rocket555/sistema-gestion.git
-cd sistema-gestion
+## 🔧 Estructura del Proyecto
+``` text
+Almacen-29/
+│
+├── 📁 app/
+│   ├── __init__.py                 # Configuración principal de Flask y BD
+│   │
+│   ├── 📁 models/
+│   │   ├── __init__.py
+│   │   └── usuario.py              # Modelo User básico
+│   │
+│   ├── 📁 routes/
+│   │   ├── __init__.py
+│   │   └── auth_routes.py          # Rutas de login/logout básicas
+│   │
+│   ├── 📁 static/
+│   │   ├── 📁 css/
+│   │   │   └── style.css           # Estilos básicos para login
+│   │   ├── 📁 images/
+│   │   └── 📁 js/
+│   │
+│   └── 📁 templates/
+│       ├── base.html               # Plantilla base mínima
+│       └── 📁 auth/
+│           └── login.html          # Formulario de login funcional
+│
+├── 📁 instance/
+│   └── config.py                   # Configuración de la app
+│
+├── .gitignore                      # Archivos a ignorar por Git
+├── requirements.txt                # Dependencias básicas
+└── README.md                       # Guía de inicio completa
 ```
-### 2. Configuracion del entorno virtual 
-```bash
-# Crear entorno virtual
-  python -m venv venv
 
-# Activar entorno (Linux/macOS)
-  source venv/bin/activate
-  
-# Activar entorno (Windows)
-  .\venv\Scripts\activate
-  ```
-### 3. Instalar Dependencias 
+
+## 🛠️ Instalación
+
+#### 1. Clonar el repositorio
 ``` bash
-  pip install -r requirements.txt
-```
-### 4. Configuración de base de datos Postgresql
+git clone https://github.com/tuusuario/Almacen-29.git
+``` 
+   
+#### 2. Configuracion de la base de datos(Prueba) 
+**Crear base de datos**
 ``` bash
-# Acceder a PostgreSQL
-  sudo -i -u postgres
+CREATE DATABASE almacen29_db;
+``` 
+**Crear usuario específico para la aplicación**
+``` bash
+CREATE USER almacen_user WITH PASSWORD 'password123';
+``` 
+**Otorgar permisos**
+``` bash
+GRANT ALL PRIVILEGES ON DATABASE almacen29_db TO almacen_user;
+``` 
+**Conectarse a la base de datos**
+``` bash
+\c almacen29_db;
+``` 
+**Otorgar permisos adicionales en esquema público**
+``` bash
+GRANT ALL ON SCHEMA public TO almacen_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO almacen_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO almacen_user;
+``` 
+#### 3. Configurar conexion con la base de datos
+**Editar instance/config.py**
+``` text
+DB_USER = 'almacen_user'
+DB_PASSWORD = 'password123'
+DB_HOST = 'localhost'
+DB_PORT = '5432'
+DB_NAME = 'almacen29_db'
+```
 
-# Crear base de datos
-  CREATE DATABASE sistema_gestion;
-
-# Crear usuario (opcional)
-  CREATE USER mi_usuario WITH PASSWORD 'mi_password';
-  GRANT ALL PRIVILEGES ON DATABASE sistema_gestion TO mi_usuario;
-```
-### 5. Configurar variables de entorno
+## 🚀 Ejecución del Proyecto
+#### 1. Crear entorno virtual (En la teminal dentro de la carpeta del proyecto)
 ``` bash
-# Copiar archivo de configuración
-  cp .env.example .env
-# Editar configuración en: instance/config.py
-# Ajustar: SQLALCHEMY_DATABASE_URI y SECRET_KEY
+python -m venv venv
 ```
-### 6. Inicializar base de datos
+#### 2. Inicializar entorno 
 ``` bash
-# Crear tablas en la base de datos
-python create_tables.py
+source venv/bin/activate
+``` 
+#### 3. Instalar dependencias:
+``` bash
+pip install -r requirements.txt
 ```
-### 7. Ejecutar la aplicacion 
+#### 4. Ejecutar aplicacion
 ``` bash
 python run.py
+``` 
+#### 5. Acceder a la aplicación:
+``` bash
+http://localhost:5000/login
+```
+## 🐛 Solución de Problemas
+- Error de conexión: Verificar que PostgreSQL esté ejecutándose
+
+- Permisos denegados: Checar la configuracion y conexion de la base de datos 
+
+- Módulo psycopg2 no encontrado: pip install psycopg2-binary
+  
+
+## 🚀 COMANDOS git
+#### 1. CLONAR el Repositorio (Solo la primera vez)
+- Abrir terminal y ejecutar:
+``` bash
+git clone https://github.com/tuusuario/Almacen-29.git
+cd Almacen-29
+``` 
+#### 2. CREAR tu Rama Personal
+**Crear y cambiar a tu rama:**
+``` bash
+git checkout -b rama-dun
+```
+**Nombres sugeridos para ramas:**
+- pm-charly
+- sm-dun
+- frontend-jose
+- frontend-alejandro
+- backend-brandon 
+- dba-adrian 
+
+#### 3. TRABAJAR en tu Rama
+**Siempre verificar en qué rama estás**
+``` bash
+git status
+```
+**Una vez verificado, has tus cambios en los archivos de forma normal**
+
+**Preparar tus cambios**
+``` bash
+git add .
+``` 
+**Guardar tus cambios con un mensaje claro**
+``` bash
+git commit -m "Agregué formulario de login"
+``` 
+#### 4. ACTUALIZAR con Cambios Nuevos (Frecuentemente)
+**Cambiar a la rama principal**
+``` bash
+git checkout main
+```
+**Descargar cambios nuevos**
+``` bash
+git pull origin main
+```
+**Volver a tu rama**
+``` bash
+git checkout rama-dun
+```
+**Traer los cambios a tu rama**
+``` bash
+git merge main
+```
+#### 5. SUBIR tus Cambios (Cuando termines una tarea)
+**Subir tu rama al repositorio**
+``` bash
+git push origin rama-dun
 ```
 
-## Estructura del proyecto 
-``` text
-sistema-gestion/
-├── app/                 # Paquete principal de la aplicación
-│   ├── models/          # Modelos de base de datos
-│   ├── templates/       # Plantillas HTML
-│   ├── static/          # Archivos estáticos (CSS, JS, imágenes)
-│   ├── routes/          # Rutas y controladores
-│   └── __init__.py      # Inicialización de la app
-├── instance/            # Configuraciones locales (NO versionar)
-├── tests/               # Pruebas unitarias y de integración
-├── migrations/          # Migraciones de base de datos (futuro)
-├── requirements.txt     # Dependencias de Python
-├── config.py            # Configuración general
-└── run.py               # Punto de entrada
-```
+
 ## 📊 Metodología Scrum
+
 ### Ceremonias
 -  Daily Standup: Reunión diaria de 15 minutos
 
--  Sprint Planning: Planificación al inicio de cada sprint (2 semanas)
+-  Sprint Planning: Planificación al inicio de cada sprint 
 
 -  Sprint Review: Demostración al final del sprint
 
@@ -125,13 +229,12 @@ sistema-gestion/
 
 ### Equipo de Desarrollo( Front-end, Back-end, DBA)
 -   Auto-organizarse** para cumplir el objetivo del sprint.
--   Realizar **commits frecuentes** en sus ramas de feature.
--   Realizar **Pull Requests** para mergear el código a la rama `develop` o `main`.
--   Revisar el código de sus compañeros (**Code Review**).
+-   Realizar **commits frecuentes** en sus ramas.
+  
 #### Frontend
--   Desarrollo de interfaces HTML/CSS/JS
+-   Desarrollo de interfaces HTML/CSS
 -   Implementación de templates Jinja2
--   Diseño responsive con Bootstrap
+-   Diseño responsive 
 
 #### Backend
 -   Desarrollo de APIs y endpoints
@@ -145,15 +248,5 @@ sistema-gestion/
 
 
 
-## 🔄 Flujo de Trabajo Git
-1. Crear una rama para cada feature
-``git checkout -b feature/nombre-del-feature``
-2. Hacer commits descriptivos
-`` git commit -m "FEAT: Add user authentication system" ``
-3. Subir cambios y crear Pull Request
-``  git push origin feature/nombre-del-feature ``
-4. Revisión de código (Code Review)
--  Al menos 1 aprobación requerida
--  Resolver comentarios antes de merge
 
 
