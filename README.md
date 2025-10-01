@@ -150,7 +150,7 @@ cd Almacen-29
 git checkout -b rama-dun
 ```
 **Nombres sugeridos para ramas:**
-- pm-charly
+- po-charly
 - sm-dun
 - frontend-jose
 - frontend-alejandro
