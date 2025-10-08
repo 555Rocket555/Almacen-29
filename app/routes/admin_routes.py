@@ -29,7 +29,9 @@ def registrar_usuario():
         password = request.form.get('password')
         confirmar_password = request.form.get('confirmar_password')
         rol = request.form.get('rol')
-
+        print("datos:nombre", nombre)
+        print("datos:email" , email)
+    
         # Validaciones básicas
         if not all([nombre, email, password, confirmar_password, rol]):
             flash('Todos los campos son obligatorios', 'danger')

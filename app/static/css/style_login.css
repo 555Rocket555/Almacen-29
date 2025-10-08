@@ -1,4 +1,3 @@
-/* Fondo degradado */
 body {
     background: linear-gradient(to bottom, #bb7b43, #724628);
     height: 100vh;
@@ -66,10 +65,5 @@ body {
 }
 
 .login-btn:hover {
-    background-color: lightgreen;
-}
-
-.btn-danger{
-    background-color: green;
-    color:negro;
+    background-color: #3b2f2a;
 }

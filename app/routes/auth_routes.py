@@ -12,12 +12,15 @@ def login():
         if session['user_rol'] == 'admin':
             return redirect(url_for('admin_routes.dashboard'))
         return redirect(url_for('auth_routes.login'))
-
+    
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-
         usuario = Usuario.query.filter_by(email=email, activo=True).first()
+        print("========Credenciales recibidas========")
+        print("Email:", email)
+        print("Contraseña:", password)
+        print("======================================")        
 
         if usuario and usuario.check_password(password):
             session['user_id'] = usuario.id
@@ -34,6 +37,11 @@ def login():
                 return redirect(url_for('auth_routes.login'))
 
         flash('Email o contraseña incorrectos', 'danger')
+
+        print("========Credenciales recibidas========")
+        print("Email:", email)
+        print("Contraseña:", password)
+        print("======================================")        
 
     return render_template('auth/login.html')
 
