@@ -1,10 +1,31 @@
-body {
-    background: linear-gradient(to bottom, #bb7b43, #724628);
+/*body {
+    background: linear-gradient(to bottom, #f7931e, #000000); linear-gradient(to bottom, #bb7b43, #724628);
     height: 100vh;
-    display: flex;
+    margin: 0;
     align-items: center;
     justify-content: center;
 }
+*/
+.main-header{
+    display: flex;
+    color: #ffffff;
+    background-color: Black;
+    padding: 20px 10px;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-header .logo img {
+    height: 50px;
+    width: 50px;
+}
+
+.main-header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
 
 /* Contenedor principal */
 .login-container {

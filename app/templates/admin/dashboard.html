@@ -1,79 +1,45 @@
-{% extends "base.html" %}
-{% block head %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_dashboard.css') }}">
-  {% endblock %}
+{% extends "base_dashboard.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1><i class="fas fa-tachometer-alt"></i> Panel de Administración</h1>
-            <span class="badge bg-success fs-6">Administrador</span>
-        </div>
-    </div>
+<div class="dashboard-header">
+    <h1>📊 Panel de Administración</h1>
+    <br>
 </div>
 
-<div class="row">
+<div class="dashboard-grid">
     <!-- Tarjeta de Usuarios -->
-    <div class="col-md-4 mb-4">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h4 class="card-title">{{ total_usuarios }}</h4>
-                        <p class="card-text">Usuarios Totales</p>
-                    </div>
-                    <div class="align-self-center">
-                        <i class="fas fa-users fa-2x"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="card card-primary">
+        <div class="card-content">
+            <h3 class="card-title">{{ total_usuarios }}</h3>
+            <p class="card-text">Usuarios Totales</p>
         </div>
     </div>
 
-    <!-- Tarjeta de Acciones Rápidas -->
-    <div class="col-md-8 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">Acciones Rápidas</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <a href="{{ url_for('admin_routes.registrar_usuario') }}" class="btn btn-success w-100 mb-2">
-                            <i class="fas fa-user-plus"></i> Registrar Nuevo Usuario
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="{{ url_for('admin_routes.lista_usuarios') }}" class="btn btn-info w-100 mb-2">
-                            <i class="fas fa-list"></i> Ver Todos los Usuarios
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Otras tarjetas pueden ir aquí -->
+</div>
+
+<div class="quick-actions-section">
+    <h2>Acciones Rápidas</h2>
+    <div class="quick-actions">
+        <a href="{{ url_for('admin_routes.registrar_usuario') }}" class="btn btn-success">
+            👤 Registrar Nuevo Usuario
+        </a>
+        <a href="{{ url_for('admin_routes.lista_usuarios') }}" class="btn btn-info">
+            📋 Ver Todos los Usuarios
+        </a>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">Resumen del Sistema</h5>
-            </div>
-            <div class="card-body">
-                <p>Bienvenido al sistema de gestión del restaurante. Desde aquí puedes:</p>
-                <ul>
-                    <li>Registrar nuevos usuarios (meseros, cocineros, administradores)</li>
-                    <li>Ver y gestionar todos los usuarios del sistema</li>
-                    <li>Monitorear la actividad del restaurante</li>
-                </ul>
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle"></i>
-                    <strong>Usuario actual:</strong> {{ session.user_nombre }} ({{ session.user_email }})
-                </div>
-            </div>
-        </div>
+<div class="card-resumen">
+    <h2>Resumen del Sistema</h2>
+    <p>Bienvenido al sistema de gestión del restaurante. Desde aquí puedes:</p>
+    <ul>
+        <li>Registrar nuevos usuarios (meseros, cocineros, administradores)</li>
+        <li>Ver y gestionar todos los usuarios del sistema</li>
+        <li>Monitorear la actividad del restaurante</li>
+    </ul>
+    <div class="user-info-card">
+        <strong>Usuario actual:</strong> {{ session.user_nombre }} ({{ session.user_email }})
     </div>
 </div>
 {% endblock %}

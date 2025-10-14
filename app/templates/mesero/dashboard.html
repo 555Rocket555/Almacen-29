@@ -1,0 +1,48 @@
+{% extends "base_dashboard.html" %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>🍽️ Mesas Ocupadas y Disponibles</h1>
+</div>
+
+<div class="mesas-grid">
+    {% for mesa in range(1, 7) %}
+    <div class="mesa">
+        <img src="{{ url_for('static', filename='images/table2.png') }}" alt="Mesa {{ mesa }}">
+        <button>Mesa {{ mesa }}</button>
+    </div>
+    {% endfor %}
+</div>
+
+<button class="btn btn-success registrar-pedido">📝 Registrar pedido</button>
+
+<div class="ordenes-section">
+    <h2>📋 Órdenes Activas</h2>
+    <table class="tabla-ordenes">
+        <thead>
+            <tr>
+                <th>Orden Digital</th>
+                <th>Mesa</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DO01</td>
+                <td>Mesa 1</td>
+                <td>🟢 Activa</td>
+            </tr>
+            <tr>
+                <td>DO02</td>
+                <td>Mesa 3</td>
+                <td>🟡 En preparación</td>
+            </tr>
+            <tr>
+                <td>DO03</td>
+                <td>Mesa 6</td>
+                <td>🟢 Activa</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

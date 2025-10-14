@@ -1,12 +1,12 @@
 // app/static/js/main.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Auto-ocultar alerts después de 5 segundos
+    // Auto-ocultar alerts después de 4 segundos
     const alerts = document.querySelectorAll('.alert');
     alerts.forEach(alert => {
         setTimeout(() => {
             const bsAlert = new bootstrap.Alert(alert);
             bsAlert.close();
-        }, 5000);
+        }, 4000);
     });
 
     // Validación de contraseñas en registro
