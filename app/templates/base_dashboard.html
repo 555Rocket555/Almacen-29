@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almacen - 29 - Dashboard</title>
     <link href="{{ url_for('static', filename='css/style_dashboard.css') }}" rel="stylesheet">
-    {% block head %}{% endblock %}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    {% block head_css %}{% endblock %}
 </head>
 <body class="dashboard-body">
     <header class="main-header">
@@ -20,14 +23,14 @@
             <span class="user-info">
                 👤 {{ session.user_nombre }} ({{ session.user_rol }})
             </span>
-            <a class="logout-btn" href="{{ url_for('auth_routes.logout') }}">
+            
+            <a class="logout-btn" href="{{ url_for('auth.logout') }}">
                 🚪 Cerrar Sesión
             </a>
-        </div>
+            </div>
     </header>
 
     <div class="container">
-        <!-- Mensajes Flash -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}

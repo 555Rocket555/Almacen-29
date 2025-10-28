@@ -7,27 +7,25 @@
 </div>
 
 <div class="dashboard-grid">
-    <!-- Tarjeta de Usuarios -->
     <div class="card card-primary">
         <div class="card-content">
             <h3 class="card-title">{{ total_usuarios }}</h3>
             <p class="card-text">Usuarios Totales</p>
         </div>
     </div>
-
-    <!-- Otras tarjetas pueden ir aquí -->
-</div>
+    </div>
 
 <div class="quick-actions-section">
     <h2>Acciones Rápidas</h2>
     <div class="quick-actions">
-        <a href="{{ url_for('admin_routes.registrar_usuario') }}" class="btn btn-success">
+        
+        <a href="{{ url_for('admin.registrar_usuario') }}" class="btn btn-success">
             👤 Registrar Nuevo Usuario
         </a>
-        <a href="{{ url_for('admin_routes.lista_usuarios') }}" class="btn btn-info">
+        <a href="{{ url_for('admin.lista_usuarios') }}" class="btn btn-info">
             📋 Ver Todos los Usuarios
         </a>
-    </div>
+        </div>
 </div>
 
 <div class="card-resumen">

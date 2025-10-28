@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from app.services.user_service import UserService
-from app.helpers.auth_helpers import login_required
+from app.common.auth_helpers import login_required
 
-bp = Blueprint('auth_routes', __name__)  # Nombre cambiado
+bp = Blueprint('auth_routes', __name__)
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/login', methods=['GET', 'POST'])
