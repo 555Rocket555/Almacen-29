@@ -29,16 +29,16 @@ def login():
 def logout():
     session.clear()
     flash('Has cerrado sesión correctamente', 'info')
-    return redirect(url_for('auth_routes.login'))  # CORREGIDO: auth_routes.login
+    return redirect(url_for('auth_routes.login'))
 
-# Funciones auxiliares CORREGIDAS
+
 def redirect_to_dashboard(rol):
     if rol == 'admin':
-        return redirect(url_for('admin_routes.dashboard'))  # CORREGIDO
+        return redirect(url_for('admin_routes.dashboard'))
     elif rol == 'mesero':
-        return redirect(url_for('mesero_routes.dashboard'))  # CORREGIDO
+        return redirect(url_for('mesero_routes.dashboard'))
     else:
-        return redirect(url_for('auth_routes.login'))  # CORREGIDO
+        return redirect(url_for('auth_routes.login'))
 
 def setup_user_session(user):
     session['user_id'] = user.id
@@ -46,7 +46,7 @@ def setup_user_session(user):
     session['user_rol'] = user.rol
     session['user_email'] = user.email
 
-# Ruta temporal para diagnóstico
+
 @bp.route('/test')
 def test():
     return "¡Flask está funcionando correctamente!"

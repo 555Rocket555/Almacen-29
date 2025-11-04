@@ -1,7 +1,7 @@
 from flask import render_template, session
-from app.mesero import bp  # <--- Importamos el Blueprint local
+from app.mesero import bp
 
-# (Asumiendo que 'helpers' se movió a 'common')
+
 from app.common.auth_helpers import login_required, mesero_required
 
 

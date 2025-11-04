@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almacen - 29 - Dashboard</title>
-    <link href="{{ url_for('static', filename='css/style_dashboard.css') }}" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <head>
+        <link href="{{ url_for('static', filename='css/style_dashboard.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    </head>
     {% block head_css %}{% endblock %}
 </head>
+
 <body class="dashboard-body">
     <header class="main-header">
         <div class="header-left">
@@ -23,23 +27,23 @@
             <span class="user-info">
                 👤 {{ session.user_nombre }} ({{ session.user_rol }})
             </span>
-            
+
             <a class="logout-btn" href="{{ url_for('auth.logout') }}">
                 🚪 Cerrar Sesión
             </a>
-            </div>
+        </div>
     </header>
 
     <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                        <button type="button" class="close-btn">&times;</button>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+            <button type="button" class="close-btn">&times;</button>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
 
         {% block content %}{% endblock %}
@@ -48,4 +52,5 @@
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}
 </body>
+
 </html>

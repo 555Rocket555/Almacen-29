@@ -13,24 +13,19 @@ def create_app(config_class='config.DevelopmentConfig'):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # --- REGISTRO DE BLUEPRINTS (VERSIÓN FINAL) ---
-    # (Importamos desde los nuevos paquetes)
     from app.auth import bp as auth_bp
     from app.admin import bp as admin_bp
     from app.mesero import bp as mesero_bp
 
-    # (El registro sigue igual, ¡pero ahora apunta a los nuevos paquetes!)
     app.register_blueprint(auth_bp) # (Este es el root '/')
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(mesero_bp, url_prefix='/mesero')
 
-    # --- COMANDO CREATE-ADMIN ---
-    from app.models import Usuario  # (Esta importación ya es la correcta)
+    from app.models import Usuario
 
     @app.cli.command("create-admin")
     def create_admin_command():
-        """Crea el usuario administrador por defecto."""
-        # ... (toda tu lógica de create-admin se queda igual) ...
+
         admin_existente = Usuario.query.filter_by(email='admin@sistema.com').first()
         if not admin_existente:
             

@@ -1,58 +1,101 @@
 {% extends "base_dashboard.html" %}
 
-
 {% block content %}
-    <main class="container"> <div class="card">
-            <div class="card-header">
-                <h2><i class="fas fa-user-plus"></i> Registrar Nuevo Usuario</h2>
-            </div>
-            <div class="card-body">
-                <form method="POST">
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo *</label>
-                            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez García">
-                        </div>
+<main class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2><i class="fas {{ icono }}"></i> {{ titulo }}</h2>
+        </div>
+        <div class="card-body">
 
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="Ej: usuario@restaurante.com">
-                        </div>
-                    </div>
+            {% if usuario %}
+            <form method="POST" action="{{ url_for('admin.editar_usuario_post', id=usuario.id) }}">
+            {% else %}
+            <form method="POST" action="{{ url_for('admin.registrar_usuario_post') }}">
+            {% endif %}
 
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="password">Contraseña *</label>
-                            <input type="password" id="password" name="password" required placeholder="Mínimo 6 caracteres">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="confirmar_password">Confirmar Contraseña *</label>
-                            <input type="password" id="confirmar_password" name="confirmar_password" required placeholder="Repite la contraseña">
-                        </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required 
+                               value="{{ usuario.nombre if usuario else form_data.nombre if form_data else '' }}" 
+                               placeholder="Ej: Juan Pérez García">
                     </div>
 
                     <div class="form-group">
-                        <label for="rol">Rol del Usuario *</label>
-                        <select id="rol" name="rol" required>
-                            <option value="">Selecciona un rol...</option>
-                            <option value="admin">Administrador</option>
-                            <option value="mesero">Mesero</option>
-                            <option value="cocinero">Cocinero</option>
-                        </select>
-                        <small>
-                            <strong>Administrador:</strong> Acceso completo<br>
-                            <strong>Mesero:</strong> Tomar órdenes y generar tickets<br>
-                            <strong>Cocinero:</strong> Ver y preparar órdenes
-                        </small>
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required 
+                               value="{{ usuario.email if usuario else form_data.email if form_data else '' }}" 
+                               placeholder="Ej: usuario@restaurante.com">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password">Contraseña 
+                            {% if not usuario %}*{% endif %}
+                        </label>
+                        <input type="password" id="password" name="password" 
+                               {% if not usuario %}required{% endif %} 
+                               placeholder="Mínimo 6 caracteres">
+                        {% if usuario %}
+                        <small>Deja en blanco para no cambiar la contraseña.</small>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmar_password">Confirmar Contraseña 
+                            {% if not usuario %}*{% endif %}
+                        </label>
+                        <input type="password" id="confirmar_password" name="confirmar_password" 
+                               {% if not usuario %}required{% endif %} 
+                               placeholder="Repite la contraseña">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rol">Rol del Usuario *</label>
+                    <select id="rol" name="rol" required>
+                        <option value="">Selecciona un rol...</option>
+                        {% set rol_seleccionado = usuario.rol if usuario else form_data.rol if form_data else '' %}
+                        
+                        <option value="admin" {% if rol_seleccionado == 'admin' %}selected{% endif %}>
+                            Administrador
+                        </option>
+                        <option value="mesero" {% if rol_seleccionado == 'mesero' %}selected{% endif %}>
+                            Mesero
+                        </option>
+                        <option value="cocinero" {% if rol_seleccionado == 'cocinero' %}selected{% endif %}>
+                            Cocinero
+                        </option>
+                    </select>
                     </div>
 
-                    <div class="form-buttons">
-                        <input type=button value="✖️ Cancelar" href="#" class="btn-secondary" onclick="history.go (-1)">
-                        <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Registrar Usuario</button>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="activo" name="activo" value="true"
+                            {% if (not usuario) or (usuario and usuario.activo) %}checked{% endif %}>
+                        <label class="form-check-label" for="activo">
+                            Activo
+                        </label>
                     </div>
-                </form>
-            </div>
+                    <small>Desmarca esta casilla para desactivar la cuenta del usuario.</small>
+                </div>
+
+
+                <div class="form-buttons">
+                    <a href="{{ url_for('admin.dashboard') }}" class="btn-secondary">✖️ Cancelar</a>
+                    
+                    <button type="submit" class="btn-primary">
+                        {% if usuario %}
+                        <i class="fas fa-save"></i> Guardar Cambios
+                        {% else %}
+                        <i class="fas fa-save"></i> Registrar Usuario
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
         </div>
-    </main>
+    </div>
+</main>
 {% endblock %}

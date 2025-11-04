@@ -1,0 +1,49 @@
+.
+├── app
+│   ├── admin
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── auth
+│   │   ├── auth.py
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── common
+│   │   ├── auth_helpers.py
+│   │   └── __init__.py
+│   ├── mesero
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   └── usuario.py
+│   ├── static
+│   │   ├── css
+│   │   │   ├── style.css
+│   │   │   └── style_dashboard.css
+│   │   ├── images
+│   │   │   ├── logoA29.jpeg
+│   │   │   ├── logoA29.png
+│   │   │   ├── table2.png
+│   │   │   └── table.png
+│   │   └── js
+│   │       └── main.js
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── dashboard.html
+│   │   │   ├── lista_usuarios.html
+│   │   │   └── registrar_usuario.html
+│   │   ├── auth
+│   │   │   └── login.html
+│   │   ├── mesero
+│   │   │   └── dashboard.html
+│   │   ├── base_dashboard.html
+│   │   └── base.html
+│   └── __init__.py
+├── config.py
+├── estructura.md
+├── estructura.txt
+├── README.md
+├── requirements.txt
+└── run.py
+
+15 directories, 32 files

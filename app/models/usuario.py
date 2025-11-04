@@ -9,7 +9,7 @@ class Usuario(db.Model):
     nombre = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
-    rol = db.Column(db.String(20), nullable=False)  # admin, mesero, cocinero
+    rol = db.Column(db.String(20), nullable=False)
     activo = db.Column(db.Boolean, default=True)
     fecha_creacion = db.Column(db.DateTime, default=datetime.utcnow)
 
