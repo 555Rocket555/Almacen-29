@@ -82,3 +82,13 @@ def registrar_usuario():
             flash(f'Error inesperado: {e}', 'danger')
 
     return render_template('admin/registrar_usuario.html')
+
+
+
+@bp.route('/productos', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def productos():
+    #if request.method == 'POST':
+        
+    return render_template('admin/productos.html')
