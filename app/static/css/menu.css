@@ -1,9 +1,4 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #090909;
-  color: #fff;
-}
+
 
 
 .menu-container {
@@ -26,13 +21,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.tab {
-  background-color: #d4d4d4;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-}
+
 
 
 .productos {
@@ -102,23 +91,8 @@ h1 {
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-color: black; /* fondo beige tipo panadería */
-  color: #4b2e05;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
 
-header {
-  width: 100%;
-  background-color: #7b4b12;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
+
 
 h1 {
   font-size: 2rem;
@@ -135,14 +109,6 @@ h1 {
   max-width: 1100px;
 }
 
-.producto {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.3s ease;
-}
 
 .producto:hover {
   transform: scale(1.03);
@@ -220,15 +186,8 @@ label {
   margin-bottom: 0.4rem;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"] {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
+
+
 
 /* ======== Mensaje emergente ======== */
 #mensaje {
@@ -251,18 +210,7 @@ input[type="file"] {
   transform: translateY(0);
 }
 
-/* ======== Colores de fondo por página ======== */
-.eliminar-page header {
-  background-color: #b71c1c;
-}
 
-.desactivar-page header {
-  background-color: #2e7d32;
-}
-
-.agregar-page header {
-  background-color: #0d47a1;
-}
 
 /* ======== Responsividad ======== */
 @media (max-width: 600px) {
@@ -277,12 +225,6 @@ input[type="file"] {
   .producto img {
     height: 120px;
   }
-}/* === Estilos generales === */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #090909;
-  color: #fff;
 }
 
 /* === Contenedor principal === */
