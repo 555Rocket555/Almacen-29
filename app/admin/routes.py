@@ -92,3 +92,35 @@ def productos():
     #if request.method == 'POST':
         
     return render_template('admin/productos.html')
+
+@bp.route('/agregar_producto', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def agregar_producto():
+    #if request.method == 'POST':
+        
+    return render_template('admin/agregar_producto.html')
+
+@bp.route('/desactivar', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def desactivar():
+    #if request.method == 'POST':
+        
+    return render_template('admin/desactivar.html')
+
+@bp.route('producto_eliminado', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def producto_eliminado():
+    #if request.method == 'POST':
+        
+    return render_template('admin/producto_eliminado.html')
+
+@bp.route('editar_producto', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def editar_producto():
+    #if request.method == 'POST':
+        
+    return render_template('admin/editar_producto.html')

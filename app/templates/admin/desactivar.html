@@ -1,0 +1,73 @@
+ {% extends "base_dashboard.html" %}
+
+
+{% block content %}
+<h1>Desactivar Producto</h1>
+  </header>
+
+  <main class="productos-container">
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/burrito.jpeg') }}" alt="Burrito">
+      <h3>Burritos</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Burrito desactivado')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+     <img src="{{ url_for('static', filename='images/hamburguesa.jpeg') }}" alt="Hamburguesa">
+      <h3>Hamburguesas</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Hamburguesa desactivada')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/hotdog.jpeg') }}" alt="Hot dogs">
+      <h3>Hot Dogs</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Hot Dogs desactivado')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/alitas.jpeg') }}" alt="Alitas">
+      <h3>Alitas</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Alitas desactivada')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/bonelees.jpeg') }}" alt="Boneless">
+      <h3>Boneless</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Boneless desactivado')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/tenders.jpeg') }}" alt="Tenders">
+      <h3>Tenders</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Tenders desactivada')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/papas.jpeg') }}" alt="Papas fritas">
+      <h3>Papas fritas</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Papas Fritas desactivado')">Desactivar</button>
+    </div>
+
+    <div class="producto">
+      <img src="{{ url_for('static', filename='images/banderilla.jpeg') }}" alt="Banderilla">
+      <h3>Banderillas</h3>
+      <button class="btn desactivar-btn" onclick="mostrarMensaje('Banderilla desactivado')">Desactivar</button>
+    </div>
+  </main>
+
+  <!-- Mensaje de confirmación -->
+  <div id="mensaje" class="mensaje-oculto"></div>
+
+  <script>
+    function mostrarMensaje(texto) {
+      const msg = document.getElementById('mensaje');
+      msg.textContent = texto;
+      msg.classList.add('mostrar');
+      setTimeout(() => {
+        msg.classList.remove('mostrar');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
+{% endblock %}

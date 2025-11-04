@@ -1,0 +1,68 @@
+{% extends "base_dashboard.html" %}
+
+
+{% block content %}
+<h1>Agregar Producto</h1>
+  </header>
+
+  <main class="form-container">
+    <form id="form-agregar" onsubmit="agregarProducto(event)">
+      <div class="form-group">
+        <label for="nombre">Nombre del producto</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="number" id="precio" name="precio" required>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">Imagen del producto</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+      </div>
+
+      <button type="submit" class="btn agregar-btn">Agregar Producto</button>
+    </form>
+
+    <!-- Vista previa de los productos agregados -->
+    <section class="productos-container" id="lista-productos">
+      <!-- Aquí se insertarán los productos agregados -->
+    </section>
+  </main>
+
+  <!-- Mensaje de confirmación -->
+  <div id="mensaje" class="mensaje-oculto"></div>
+
+  <script>
+    function agregarProducto(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const precio = document.getElementById('precio').value;
+      const imagenInput = document.getElementById('imagen');
+      const mensaje = document.getElementById('mensaje');
+      const lista = document.getElementById('lista-productos');
+
+      if (nombre && precio && imagenInput.files.length > 0) {
+        const imgURL = URL.createObjectURL(imagenInput.files[0]);
+        const nuevoProducto = document.createElement('div');
+        nuevoProducto.classList.add('producto');
+        nuevoProducto.innerHTML = `
+          <img src="${imgURL}" alt="${nombre}">
+          <h3>${nombre}</h3>
+          <p>$${precio}</p>
+        `;
+        lista.appendChild(nuevoProducto);
+
+        mensaje.textContent = `${nombre} agregado correctamente`;
+        mensaje.classList.add('mostrar');
+
+        setTimeout(() => mensaje.classList.remove('mostrar'), 2500);
+        document.getElementById('form-agregar').reset();
+      }
+    }
+  </script>
+</body>
+</html>
+{% endblock %}

@@ -11,44 +11,44 @@
 
     <div class="productos">
       <div class="producto">
-        <img src="burrito.jpeg">
+        <img src="{{ url_for('static', filename='images/burrito.jpeg') }}" alt="Burrito">
         <p>Burritos</p>
       </div>
       <div class="producto">
-        <img src="hamburguesa.jpeg" alt="Hamburguesas">
+        <img src="{{ url_for('static', filename='images/hamburguesa.jpeg') }}" alt="Hamburguesa">
         <p>Hamburguesas</p>
       </div>
       <div class="producto">
-        <img src="hotdog.jpeg" alt="Hot dogs">
+        <img src="{{ url_for('static', filename='images/hotdog.jpeg') }}" alt="Hot Dog">
         <p>Hot dogs</p>
       </div>
       <div class="producto">
-        <img src="alitas.jpeg" alt="Alitas">
+        <img src="{{ url_for('static', filename='images/alitas.jpeg') }}" alt="Alitas">
         <p>Alitas</p>
       </div>
       <div class="producto">
-        <img src="bonelees.jpeg" alt="Boneless">
+        <img src="{{ url_for('static', filename='images/bonelees.jpeg') }}" alt="Boneless">
         <p>Boneless</p>
       </div>
       <div class="producto">
-        <img src="tenders.jpeg" alt="Tenders">
+        <img src="{{ url_for('static', filename='images/tenders.jpeg') }}" alt="Tenders">
         <p>Tenders</p>
       </div>
       <div class="producto">
-        <img src="papas.jpeg" alt="Papas fritas">
+        <img src="{{ url_for('static', filename='images/papas.jpeg') }}" alt="Papas fritas">
         <p>Papas fritas</p>
       </div>
       <div class="producto">
-        <img src="banderilla.jpeg" alt="Banderillas">
+       <img src="{{ url_for('static', filename='images/banderilla.jpeg') }}" alt="Banderilla">
         <p>Banderillas</p>
       </div>
     </div>
     
     <nav>
-          <a href="agregar.html">Agregar producto</a>
-          <a href="desactivar.html">Desactivar producto</a>
-          <a href=".html">Editar producto</a>
-          <a href="eliminar.html">Eliminar producto</a>
+           <a href="{{ url_for('admin.agregar_producto') }}"  class="btn btn-success">Agregar producto</a>
+           <a href="{{ url_for('admin.desactivar') }}"  class="btn btn-success">Desactivar  producto</a>
+          <a href="{{ url_for('admin.editar_producto') }}"  class="btn btn-success">Editar producto</a>
+          <a href="{{ url_for('admin.producto_eliminado') }}"  class="btn btn-success">Eliminar producto</a>
           
           
      </nav> 
