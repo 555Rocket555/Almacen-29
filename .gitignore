@@ -4,6 +4,10 @@ venv/
 .env.local
 .env.production
 
+Documentos/
+DBA/
+README.md
+
 # Python
 __pycache__/
 *.pyc

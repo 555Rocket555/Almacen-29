@@ -17,7 +17,7 @@ def create_app(config_class='config.DevelopmentConfig'):
     from app.admin import bp as admin_bp
     from app.mesero import bp as mesero_bp
 
-    app.register_blueprint(auth_bp) # (Este es el root '/')
+    app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(mesero_bp, url_prefix='/mesero')
 

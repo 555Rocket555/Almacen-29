@@ -1,4 +1,3 @@
-# config.py
 import os
 from dotenv import load_dotenv
 
@@ -9,7 +8,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # Validar que las variables críticas existan
     if not SECRET_KEY:
         raise ValueError("SECRET_KEY no está configurada en las variables de entorno")
     if not SQLALCHEMY_DATABASE_URI:

@@ -1,49 +1,37 @@
-.
-├── app
-│   ├── admin
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── auth
-│   │   ├── auth.py
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── common
-│   │   ├── auth_helpers.py
-│   │   └── __init__.py
-│   ├── mesero
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── models
-│   │   ├── __init__.py
-│   │   └── usuario.py
-│   ├── static
-│   │   ├── css
-│   │   │   ├── style.css
-│   │   │   └── style_dashboard.css
-│   │   ├── images
-│   │   │   ├── logoA29.jpeg
-│   │   │   ├── logoA29.png
-│   │   │   ├── table2.png
-│   │   │   └── table.png
-│   │   └── js
-│   │       └── main.js
-│   ├── templates
-│   │   ├── admin
-│   │   │   ├── dashboard.html
-│   │   │   ├── lista_usuarios.html
-│   │   │   └── registrar_usuario.html
-│   │   ├── auth
-│   │   │   └── login.html
-│   │   ├── mesero
-│   │   │   └── dashboard.html
-│   │   ├── base_dashboard.html
-│   │   └── base.html
-│   └── __init__.py
-├── config.py
-├── estructura.md
-├── estructura.txt
-├── README.md
-├── requirements.txt
-└── run.py
-
-15 directories, 32 files
+.Almacen-29/
+├── venv/                   # Entorno virtual de Python
+├── migrations/             # Archivos de Flask-Migrate (autogenerados)
+├── app/
+│   ├── __init__.py         # <-- FÁBRICA DE APP (create_app, registra Blueprints)
+│   ├── admin/
+│   │   ├── __init__.py
+│   │   └── routes.py       # <-- LÓGICA DE VISTAS (CRUDs de Admin)
+│   ├── auth/
+│   │   └── routes.py       # <-- Lógica de Login/Logout
+│   ├── models/
+│   │   ├── __init__.py     # <-- IMPORTANTE: Importa TODOS los modelos
+│   │   ├── usuario.py
+│   │   ├── producto.py
+│   │   ├── categoria_producto.py
+│   │   ├── insumo.py
+│   │   ├── producto_ingrediente.py
+│   │   ├── orden.py
+│   │   └── orden_detalle.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css   # <-- ARCHIVO ÚNICO de estilos
+│   │   ├── js/
+│   │   │   └── main.js     # <-- ARCHIVO ÚNICO de JavaScript
+│   │   └── icons/
+│   │       ├── edit.png
+│   │       └── delete.svg
+│   └── templates/
+│       ├── base.html       # <-- Base para Login
+│       ├── base_dashboard.html # <-- Base para Admin (con Sidebar)
+│       └── admin/
+│           ├── dashboard.html
+│           ├── lista_usuarios.html
+│           ├── lista_productos.html
+│           └── registrar_producto.html # (Reutilizable para "Editar")
+├── config.py               # Claves y URL de la Base de Datos
+└── run.py                  # Punto de entrada (ejecuta la app)

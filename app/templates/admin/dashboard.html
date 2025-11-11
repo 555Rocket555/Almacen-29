@@ -15,23 +15,20 @@
     </div>
 </div>
 
-<div class="quick-actions-section">
-    <h2>Acciones Rápidas</h2>
-    <div class="quick-actions">
-        <a href="{{ url_for('admin.registrar_usuario_form') }}" class="btn btn-success">👤 Registrar Nuevo Usuario</a>
-        <a href="{{ url_for('admin.lista_usuarios') }}" class="btn btn-info">📋 Ver Todos los Usuarios</a>
-    </div>
-</div>
+
 <div class="card-resumen">
-    <h2>Resumen del Sistema</h2>
-    <p>Bienvenido al sistema de gestión del restaurante. Desde aquí puedes:</p>
-    <ul>
-        <li>Registrar nuevos usuarios (meseros, cocineros, administradores)</li>
-        <li>Ver y gestionar todos los usuarios del sistema</li>
-        <li>Monitorear la actividad del restaurante</li>
-    </ul>
-<div class="user-info-card">
-    <strong>Usuario actual:</strong> {{ session.user_nombre }} ({{ session.user_email }})
-</div>
+    <div class="quick-actions-section">
+        <h2>Acciones Rápidas</h2>
+        <div class="quick-actions">
+            <a href="{{ url_for('admin.registrar_usuario_form') }}" class="btn btn-success">👤 Registrar Nuevo
+                Usuario</a>
+            <a href="{{ url_for('admin.lista_usuarios') }}" class="btn btn-info">📋 Ver Todos los Usuarios</a>
+            <a href="{{ url_for('admin.lista_productos') }}" class="btn btn-info">🍽️ Ver Productos</a>
+        </div>
+    </div>
+
+    <div class="user-info-card">
+        <strong>Usuario actual:</strong> {{ session.user_nombre }} ({{ session.user_email }})
+    </div>
 </div>
 {% endblock %}
